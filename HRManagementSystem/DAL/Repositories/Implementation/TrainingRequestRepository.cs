@@ -1,13 +1,13 @@
-﻿using DAL.Entities;
+﻿using DAL.EF;
+using DAL.Entities;
 using DAL.Repositories.Interfaces;
-using System.Data.Entity;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories.Implementation
 {
     public class TrainingRequestRepository : BaseRepository<TrainingRequest>, ITrainingRequestRepository
     {
-        public TrainingRequestRepository(DbContext context) : base(context)
+        public TrainingRequestRepository(HRManagementSystemContext context) : base(context)
         {
         }
     }

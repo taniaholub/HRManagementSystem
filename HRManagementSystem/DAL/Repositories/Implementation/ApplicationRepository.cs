@@ -1,12 +1,13 @@
 ﻿using DAL.Repositories.Interfaces;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using DAL.Entities;
+using DAL.EF;
 
 namespace DAL.Repositories.Implementation
 {
     public class ApplicationRepository : BaseRepository<Application>, IApplicationRepository
     {
-        public ApplicationRepository(DbContext context) : base(context)
+        public ApplicationRepository(HRManagementSystemContext context) : base(context)
         {
         }
     }

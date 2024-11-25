@@ -1,12 +1,13 @@
-﻿using DAL.Entities;
+﻿using DAL.EF;
+using DAL.Entities;
 using DAL.Repositories.Interfaces;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories.Implementation
 {
     public class UserRequestRepository : BaseRepository<UserRequest>, IUserRequestRepository
     {
-        public UserRequestRepository(DbContext context) : base(context)
+        public UserRequestRepository(HRManagementSystemContext context) : base(context)
         {
         }
     }

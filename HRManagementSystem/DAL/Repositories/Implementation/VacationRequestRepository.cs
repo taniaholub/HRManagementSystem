@@ -1,12 +1,13 @@
-﻿using DAL.Entities;
+﻿using DAL.EF;
+using DAL.Entities;
 using DAL.Repositories.Interfaces;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories.Implementation
 {
     public class VacationRequestRepository : BaseRepository<VacationRequest>, IVacationRequestRepository
     {
-        public VacationRequestRepository(DbContext context) : base(context)
+        public VacationRequestRepository(HRManagementSystemContext context) : base(context)
         {
         }
     }

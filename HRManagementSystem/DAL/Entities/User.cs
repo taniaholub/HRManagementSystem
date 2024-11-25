@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace Catalog.DAL.Entities
+namespace DAL.Entities
 {
     public class User
     {
@@ -15,8 +14,8 @@ namespace Catalog.DAL.Entities
         public string Phone { get; set; }
 
         // Навігаційні властивості
-        //public ICollection<UserRequest> UserRequests { get; set; }
-        //public ICollection<Application> Applications { get; set; }
+        public ICollection<UserRequest> UserRequests { get; set; }
+        public ICollection<Application> Applications { get; set; }
     }
 
 }

@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using Catalog.DAL.Entities;
+﻿using Microsoft.EntityFrameworkCore;
 using DAL.Entities;
 
 
