@@ -42,8 +42,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Entities\Class1.cs" />
+    <Compile Include="Entities\Application.cs" />
+    <Compile Include="Entities\TrainingRequest.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserRequest.cs" />
+    <Compile Include="Entities\Vacancy.cs" />
+    <Compile Include="Entities\VacationRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Implementation\ApplicationRepository.cs" />
+    <Compile Include="Repositories\Implementation\BaseRepository.cs" />
+    <Compile Include="Repositories\Implementation\TrainingRequestRepository.cs" />
+    <Compile Include="Repositories\Implementation\UserRepository.cs" />
+    <Compile Include="Repositories\Implementation\UserRequestRepository.cs" />
+    <Compile Include="Repositories\Implementation\VacancyRepository.cs" />
+    <Compile Include="Repositories\Implementation\VacationRequestRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IApplicationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITrainingRequestRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserRequestRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IVacancyRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IVacationRequestRepository.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
