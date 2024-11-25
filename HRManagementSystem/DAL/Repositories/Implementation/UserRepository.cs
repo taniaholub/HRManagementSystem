@@ -1,6 +1,6 @@
 ﻿using Catalog.DAL.Entities;
 using DAL.Repositories.Interfaces;
-
+using System.Data.Entity;
 
 namespace DAL.Repositories.Implementation
 {
