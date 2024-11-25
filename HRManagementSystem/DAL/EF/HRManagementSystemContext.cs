@@ -15,7 +15,7 @@ namespace DAL.EF
         public DbSet<Application> Applications { get; set; }
 
         // Конструктор для передачі налаштувань
-        public HRManagementSystemContext(DbContextOptions<HRManagementSystemContext> options)
+        public HRManagementSystemContext(DbContextOptions options)
             : base(options)
         {
         }

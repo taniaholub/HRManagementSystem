@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="EF\EFUnitOfWork.cs" />
     <Compile Include="EF\HRManagementSystemContext.cs" />
     <Compile Include="Entities\Application.cs" />
     <Compile Include="Entities\TrainingRequest.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Repositories\Interfaces\IUserRequestRepository.cs" />
     <Compile Include="Repositories\Interfaces\IVacancyRepository.cs" />
     <Compile Include="Repositories\Interfaces\IVacationRequestRepository.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

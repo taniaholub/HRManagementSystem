@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Repositories.Interfaces;
+using System;
 
 namespace DAL.UnitOfWork
 {
-    internal class IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+        IUserRepository Users { get; }
+        IVacationRequestRepository VacationRequests { get; }
+        ITrainingRequestRepository TrainingRequests { get; }
+        IUserRequestRepository UserRequests { get; }
+        IVacancyRepository Vacancies { get; }
+        IApplicationRepository Applications { get; }
+
+        void Save();
     }
 }
