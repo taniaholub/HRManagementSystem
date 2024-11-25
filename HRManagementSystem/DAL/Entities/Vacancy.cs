@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DAL.Enums;
+using System;
 
 
 namespace DAL.Entities
@@ -11,10 +11,8 @@ namespace DAL.Entities
         public string Description { get; set; }
         public string Requirements { get; set; }
         public DateTime CreatedAt { get; set; }
-        public string Status { get; set; }
+        public Status Status { get; set; }
 
-        // Навігаційні властивості
-        public ICollection<Application> Applications { get; set; }
     }
 
 }

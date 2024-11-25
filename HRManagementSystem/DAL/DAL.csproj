@@ -124,6 +124,9 @@
     <Compile Include="Entities\UserRequest.cs" />
     <Compile Include="Entities\Vacancy.cs" />
     <Compile Include="Entities\VacationRequest.cs" />
+    <Compile Include="Enums\RequestType.cs" />
+    <Compile Include="Enums\Role.cs" />
+    <Compile Include="Enums\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Implementation\ApplicationRepository.cs" />
     <Compile Include="Repositories\Implementation\BaseRepository.cs" />
@@ -145,5 +148,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

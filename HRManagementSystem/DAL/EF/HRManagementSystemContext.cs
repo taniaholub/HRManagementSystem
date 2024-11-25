@@ -6,7 +6,7 @@ namespace DAL.EF
 {
     public class HRManagementSystemContext : DbContext
     {
-        // Набори сутностей (таблиці в базі даних)
+        
         public DbSet<User> Users { get; set; }
         public DbSet<VacationRequest> VacationRequests { get; set; }
         public DbSet<TrainingRequest> TrainingRequests { get; set; }

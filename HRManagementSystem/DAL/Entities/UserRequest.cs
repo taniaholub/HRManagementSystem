@@ -1,5 +1,5 @@
 ﻿using DAL.Entities;
-
+using DAL.Enums;
 
 namespace DAL.Entities
 {
@@ -9,12 +9,8 @@ namespace DAL.Entities
         public int IdUser { get; set; }
         public int? IdVacationRequest { get; set; }
         public int? IdTrainingRequest { get; set; }
-        public string Type { get; set; } // ENUM ('Vacation', 'Training')
+        public RequestType RequestType { get; set; } 
 
-        // Навігаційні властивості
-        public User User { get; set; }
-        public VacationRequest VacationRequest { get; set; }
-        public TrainingRequest TrainingRequest { get; set; }
     }
 
 }

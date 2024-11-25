@@ -1,5 +1,4 @@
 ﻿using DAL.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using DAL.Entities;
 using DAL.EF;
 
