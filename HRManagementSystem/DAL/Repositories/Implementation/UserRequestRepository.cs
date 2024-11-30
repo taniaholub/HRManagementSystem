@@ -11,4 +11,18 @@ namespace DAL.Repositories.Implementation
         {
         }
     }
+
+    // Отримати запити користувача за типом
+    public IEnumerable<UserRequest> GetRequestsByType(int userId, string requestType)
+    {
+        return db.UserRequests
+                 .Where(r => r.IdUser == userId && r.RequestType == requestType)
+                 .ToList();
+    }
+
+    // Отримати останні запити всіх користувачів
+    public IEnumerable<UserRequest> GetRecentRequests(int count)
+    {
+        return db.UserRequests.OrderByDescending(r => r.CreatedAt).Take(count).ToList();
+    }
 }

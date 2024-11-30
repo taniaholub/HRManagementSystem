@@ -8,47 +8,25 @@ namespace DAL.EF
 {
     public class EFUnitOfWork : IUnitOfWork
     {
-        private HRManagementSystemContext db;
+        private readonly HRManagementSystemContext _context;
 
-        private UserRepository userRepository;
-        private VacationRequestRepository vacationRequestRepository;
-        private TrainingRequestRepository trainingRequestRepository;
-        private UserRequestRepository userRequestRepository;
-        private VacancyRepository vacancyRepository;
-        private ApplicationRepository applicationRepository;
+        private UserRepository _userRepository;
+        private UserRequestRepository _userRequestRepository;
+        private VacancyRepository _vacancyRepository;
+        private ApplicationRepository _applicationRepository;
 
-        public EFUnitOfWork(DbContextOptions options)
+        public EFUnitOfWork(HRManagementSystemContext context)
         {
-            db = new HRManagementSystemContext(options);
+            _context = context;
         }
 
         public IUserRepository Users
         {
             get
             {
-                if (userRepository == null)
-                    userRepository = new UserRepository(db);
-                return userRepository;
-            }
-        }
-
-        public IVacationRequestRepository VacationRequests
-        {
-            get
-            {
-                if (vacationRequestRepository == null)
-                    vacationRequestRepository = new VacationRequestRepository(db);
-                return vacationRequestRepository;
-            }
-        }
-
-        public ITrainingRequestRepository TrainingRequests
-        {
-            get
-            {
-                if (trainingRequestRepository == null)
-                    trainingRequestRepository = new TrainingRequestRepository(db);
-                return trainingRequestRepository;
+                if (_userRepository == null)
+                    _userRepository = new UserRepository(_context);
+                return _userRepository;
             }
         }
 
@@ -56,9 +34,9 @@ namespace DAL.EF
         {
             get
             {
-                if (userRequestRepository == null)
-                    userRequestRepository = new UserRequestRepository(db);
-                return userRequestRepository;
+                if (_userRequestRepository == null)
+                    _userRequestRepository = new UserRequestRepository(_context);
+                return _userRequestRepository;
             }
         }
 
@@ -66,9 +44,9 @@ namespace DAL.EF
         {
             get
             {
-                if (vacancyRepository == null)
-                    vacancyRepository = new VacancyRepository(db);
-                return vacancyRepository;
+                if (_vacancyRepository == null)
+                    _vacancyRepository = new VacancyRepository(_context);
+                return _vacancyRepository;
             }
         }
 
@@ -76,28 +54,28 @@ namespace DAL.EF
         {
             get
             {
-                if (applicationRepository == null)
-                    applicationRepository = new ApplicationRepository(db);
-                return applicationRepository;
+                if (_applicationRepository == null)
+                    _applicationRepository = new ApplicationRepository(_context);
+                return _applicationRepository;
             }
         }
 
         public void Save()
         {
-            db.SaveChanges();
+            _context.SaveChanges();
         }
 
-        private bool disposed = false;
+        private bool _disposed = false;
 
-        public virtual void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!_disposed)
             {
                 if (disposing)
                 {
-                    db.Dispose();
+                    _context.Dispose();
                 }
-                this.disposed = true;
+                _disposed = true;
             }
         }
 
