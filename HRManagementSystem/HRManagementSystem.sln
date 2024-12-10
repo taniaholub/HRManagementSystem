@@ -7,7 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{8E2C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{51688B32-4E6E-4352-B40C-EC5CB3744420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.Tests", "DAL.Tests\DAL.Tests.csproj", "{877EBE3C-8BB3-48BE-8FF9-2090F9B66B28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL.Tests", "DAL.Tests\DAL.Tests.csproj", "{877EBE3C-8BB3-48BE-8FF9-2090F9B66B28}"
+	ProjectSection(ProjectDependencies) = postProject
+		{51688B32-4E6E-4352-B40C-EC5CB3744420} = {51688B32-4E6E-4352-B40C-EC5CB3744420}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
