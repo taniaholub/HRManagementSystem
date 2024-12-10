@@ -1,5 +1,6 @@
 ﻿using DAL.Entities;
-
+using System;
+using System.Collections.Generic;
 
 namespace DAL.Repositories.Interfaces
 {
@@ -10,5 +11,4 @@ namespace DAL.Repositories.Interfaces
         IEnumerable<User> GetActiveUsers(DateTime fromDate);
     }
 }
-
 

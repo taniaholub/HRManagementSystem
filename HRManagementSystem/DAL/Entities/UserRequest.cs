@@ -1,5 +1,6 @@
 ﻿using DAL.Entities;
 using DAL.Enums;
+using System;
 
 namespace DAL.Entities
 {
@@ -9,8 +10,8 @@ namespace DAL.Entities
         public int IdUser { get; set; }
         public int? IdVacationRequest { get; set; }
         public int? IdTrainingRequest { get; set; }
-        public RequestType RequestType { get; set; } 
-
+        public RequestType RequestType { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 
 }
