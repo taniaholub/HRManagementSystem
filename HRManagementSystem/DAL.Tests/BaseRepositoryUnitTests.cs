@@ -2,10 +2,7 @@
 using DAL.Entities;
 using DAL.Repositories.Implementation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Moq;
-using System.IO;
-using Xunit;
 
 namespace DAL.Tests
 {
