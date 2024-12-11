@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Enums;
+using System;
 
 
 namespace BLL.DTO
@@ -7,7 +8,9 @@ namespace BLL.DTO
     {
         public int IdUserRequests { get; set; }
         public int IdUser { get; set; }
-        public string RequestType { get; set; }
+        public int? IdVacationRequest { get; set; } 
+        public int? IdTrainingRequest { get; set; } 
+        public RequestType RequestType { get; set; } 
         public DateTime CreatedAt { get; set; }
     }
 }
