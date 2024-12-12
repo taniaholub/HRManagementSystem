@@ -45,7 +45,7 @@
     <Compile Include="Security\Identity\HR.cs" />
     <Compile Include="Security\Identity\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecurityContext.cs" />
+    <Compile Include="Security\SecurityContext.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

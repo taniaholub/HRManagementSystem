@@ -1,6 +1,6 @@
 ﻿
 
-namespace CCL.Identity
+namespace CCL.Security.Identity
 {
     public class Employee : User
     {
