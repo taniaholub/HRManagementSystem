@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BLL</RootNamespace>
     <AssemblyName>BLL</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,13 +48,17 @@
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\UserRequestDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Impl\HRService.cs" />
-    <Compile Include="Services\Interfaces\IHRService.cs" />
+    <Compile Include="Services\Impl\UserRequestService.cs" />
+    <Compile Include="Services\Interfaces\IUserRequestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CCL\CCL.csproj">
+      <Project>{8f29792d-b699-4aed-ba67-0808761627fa}</Project>
+      <Name>CCL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{51688b32-4e6e-4352-b40c-ec5cb3744420}</Project>
       <Name>DAL</Name>

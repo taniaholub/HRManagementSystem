@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BLL.Services.Interfaces
 {
-    public interface IHRService
+    public interface IUserRequestService
     {
         IEnumerable<UserDTO> GetUsersByRole(string role);
         UserDTO GetUserById(int userId);

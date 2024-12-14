@@ -1,12 +1,9 @@
 ﻿using DAL.EF;
 using DAL.Entities;
-using DAL.Enums;
 using DAL.Repositories.Implementation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Moq;
-using System.IO;
-using Xunit;
+
 
 namespace DAL.Tests
 {
@@ -17,11 +14,11 @@ namespace DAL.Tests
             [Fact]
             public void Create_InputUserInstance_CalledAddMethodOfDBSetWithUserInstance()
             {
-                // Arrange: організація тестових даних
+                // Arrange: 
                 DbContextOptions opt = new DbContextOptionsBuilder<HRManagementSystemContext>()
                     .Options;
 
-                // Створення двійників для DbContext та DbSet
+                // Створення двійників для HRManagementSystemContext та DbSet
                 var mockContext = new Mock<HRManagementSystemContext>(opt);
                 var mockDbSet = new Mock<DbSet<User>>();
 
