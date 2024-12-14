@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using BLL.Services.Interfaces;
 using DAL.UnitOfWork;
@@ -20,31 +19,65 @@ namespace BLL.Services.Impl
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
+        /// <exception cref="MethodAccessException"></exception>
         public IEnumerable<UserDTO> GetUsersByRole(string role)
         {
-            var users = _unitOfWork.Users.GetUsersByRole(role);
+            var currentUser = SecurityContext.GetUser();
+            var userType = currentUser.GetType();
+
+            // Перевірка доступу
+            if (userType != typeof(HR))
+            {
+                throw new MethodAccessException("Access denied for non-Director and non-Accountant users.");
+            }
+
+            // Отримання даних із репозиторію
+            var usersEntities = _unitOfWork.Users.GetUsersByRole(role);
+
+            // Налаштування мапера
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<DAL.Entities.User, UserDTO>()).CreateMapper();
-            return mapper.Map<IEnumerable<DAL.Entities.User>, List<UserDTO>>(users);
+
+            // Мапінг сутностей у DTO
+            var usersDto = mapper.Map<IEnumerable<DAL.Entities.User>, List<UserDTO>>(usersEntities);
+
+            return usersDto;
         }
 
-        public UserDTO GetUserById(int userId)
-        {
-            var user = _unitOfWork.Users.Get(userId);
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<DAL.Entities.User, UserDTO>()).CreateMapper();
-            return mapper.Map<DAL.Entities.User, UserDTO>(user);
-        }
-
+        /// <exception cref="MethodAccessException"></exception>
         public IEnumerable<UserRequestDTO> GetUserRequests(int userId)
         {
             var currentUser = SecurityContext.GetUser();
-            if (currentUser == null || !(currentUser is HR))
+            if (currentUser == null || currentUser.GetType() != typeof(HR))
             {
                 throw new MethodAccessException("Access denied for non-HR users.");
             }
 
-            var requests = _unitOfWork.UserRequests.Find(r => r.IdUser == userId);
+            // Отримання даних із репозиторію
+            var requestsEntities = _unitOfWork.UserRequests.Find(r => r.IdUser == userId);
+
+            // Налаштування мапера
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<UserRequest, UserRequestDTO>()).CreateMapper();
-            return mapper.Map<IEnumerable<UserRequest>, List<UserRequestDTO>>(requests);
+
+            // Мапінг сутностей у DTO
+            var requestsDto = mapper.Map<IEnumerable<UserRequest>, List<UserRequestDTO>>(requestsEntities);
+
+            return requestsDto;
+        }
+
+        public UserDTO GetUserById(int userId)
+        {
+            var currentUser = SecurityContext.GetUser();
+
+            // Отримання користувача
+            var userEntity = _unitOfWork.Users.Get(userId);
+
+            // Налаштування мапера
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<DAL.Entities.User, UserDTO>()).CreateMapper();
+
+            // Мапінг у DTO
+            var userDto = mapper.Map<DAL.Entities.User, UserDTO>(userEntity);
+
+            return userDto;
         }
     }
 }
